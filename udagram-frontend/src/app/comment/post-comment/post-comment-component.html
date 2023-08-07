@@ -1,0 +1,10 @@
+<form [formGroup]="postComment" (submit)="onSubmit($event)">
+    <label>
+        <input type="text">
+    </label>
+    <ion-item>
+        <ion-label position="floating" color="primary">Comment</ion-label>
+        <ion-input type="text" formControlName="content" required="true"></ion-input>
+    </ion-item>
+    <ion-button type="submit">Post comment</ion-button>
+</form>

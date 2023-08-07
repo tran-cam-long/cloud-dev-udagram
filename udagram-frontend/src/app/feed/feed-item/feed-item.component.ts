@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FeedItem } from '../models/feed-item.model';
+import {CommentItem} from '../../comment/models/comment-item.model';
 
 @Component({
   selector: 'app-feed-item',
@@ -9,6 +10,7 @@ import { FeedItem } from '../models/feed-item.model';
 })
 export class FeedItemComponent implements OnInit {
   @Input() feedItem: FeedItem;
+  @Input() feedItemComment: CommentItem[];
 
   constructor() { }
 

@@ -3,4 +3,10 @@
   <ion-card-content>
     <p>{{feedItem.caption}}</p>
   </ion-card-content>
+  <ion-card class="comment-section" *ngIf="feedItemComment">
+    <p>Show comments here</p>
+    <ion-list>
+
+    </ion-list>
+  </ion-card>
 </ion-card>
