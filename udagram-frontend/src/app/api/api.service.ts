@@ -33,9 +33,11 @@ export class ApiService {
   }
 
   get(endpoint): Promise<any> {
+      console.log('Conmeo endpoint: ' + endpoint + ', host: ' + API_HOST);
     const url = `${API_HOST}${endpoint}`;
     const req = this.http.get(url, this.httpOptions).pipe(map(ApiService.extractData));
 
+    console.log('Conmeo req: ' + JSON.stringify(req));
     return req
             .toPromise()
             .catch((e) => {
@@ -56,6 +58,7 @@ export class ApiService {
 
   async upload(endpoint: string, file: File, payload: any): Promise<any> {
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
+    console.log('Conmeo url: ', signed_url);
 
     const headers = new HttpHeaders({'Content-Type': file.type});
     const req = new HttpRequest( 'PUT', signed_url, file,
